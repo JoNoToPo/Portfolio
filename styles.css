@@ -452,6 +452,7 @@ code {
   width: 100%;
   aspect-ratio: 16 / 9;
   background: #000;
+  border: 0;
   border-bottom: 1px solid var(--border);
 }
 

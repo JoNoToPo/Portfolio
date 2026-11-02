@@ -164,10 +164,14 @@
           </article>
 
           <article class="card project">
-            <!-- TODO: add 1–2 screenshots. -->
-            <div class="media-placeholder" role="img" aria-label="Screenshots of Gamify Life coming soon">
-              <span>Screenshots coming soon</span>
-            </div>
+            <!-- Team demo video on teammate Aibyn Dalel's YouTube channel. youtube-nocookie avoids
+                 tracking cookies until the visitor presses play. Always muted; script.js adds autoplay
+                 and looping only if the visitor allows motion. -->
+            <iframe class="project-video" data-youtube-id="znfUEdTxLXQ"
+                    src="https://www.youtube-nocookie.com/embed/znfUEdTxLXQ?mute=1&amp;playsinline=1&amp;rel=0"
+                    title="Gamify Life demo video (muted)" loading="lazy"
+                    allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                    referrerpolicy="strict-origin-when-cross-origin"></iframe>
             <div class="project-body">
               <p class="meta">BCIT COMP 2800 · May – Jun 2025</p>
               <h3>Gamify Life</h3>
@@ -179,10 +183,8 @@
               <ul class="tags" aria-label="Technologies">
                 <li>Node.js</li><li>Express</li><li>MongoDB</li><li>JavaScript</li><li>Tailwind</li><li>OpenAI API</li>
               </ul>
-              <!-- Hosted on Render's free tier, which sleeps when idle, so the first load can take ~30 s. -->
-              <p class="note">The live app may take up to a minute to wake up on first load.</p>
+              <!-- No live link: the Render deployment's MongoDB Atlas cluster was deleted (Nov 2026). -->
               <div class="button-row">
-                <a class="btn btn-primary" href="https://two800-202510-dtc02.onrender.com/">Try it live</a>
                 <!-- Repo lives on a teammate's account. -->
                 <a class="btn" href="https://github.com/ivanekavalashvili/2800-202510-DTC02">Code</a>
               </div>
