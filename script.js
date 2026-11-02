@@ -64,12 +64,6 @@ if (!reduceMotion) {
     // play() returns a promise that rejects if the browser blocks autoplay; that's fine.
     video.play().catch(() => {});
   });
-
-  // YouTube embeds: loop needs playlist=<same id>, otherwise the player stops at the end.
-  document.querySelectorAll("iframe[data-youtube-id]").forEach((frame) => {
-    const id = frame.dataset.youtubeId;
-    frame.src += `&autoplay=1&loop=1&playlist=${id}`;
-  });
 }
 
 // ----- Sound buttons -----
