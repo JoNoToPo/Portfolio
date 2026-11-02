@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jonathan Engelhard | Developer</title>
+  <meta name="description" content="Jonathan Engelhard, BCIT Computer Systems Technology student in the AI & Machine Learning option, graduating December 2026. Playable projects, industry work and resume.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Apply a saved theme before first paint so the page doesn't flash the wrong colours. -->
+  <script>
+    try {
+      const saved = localStorage.getItem("theme");
+      if (saved === "light" || saved === "dark") document.documentElement.dataset.theme = saved;
+    } catch (e) { /* storage blocked: fall back to the system setting */ }
+  </script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Main">
+      <a class="nav-name" href="#top">Jonathan Engelhard</a>
+      <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#industry">Industry</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme">
+        <span class="theme-icon" aria-hidden="true"></span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="container">
+        <p class="eyebrow">Vancouver, BC · Graduating December 2026</p>
+        <h1 id="hero-title">Jonathan Engelhard</h1>
+        <p class="pitch">
+          Developer in BCIT's AI &amp; Machine Learning option. I build playful, interactive software,
+          like a webcam instrument you play with your hands.
+        </p>
+        <div class="button-row">
+          <a class="btn btn-primary" href="assets/Jonathan_Engelhard_Resume.pdf">Resume (PDF)</a>
+          <a class="btn" href="https://github.com/JoNoToPo">GitHub</a>
+          <a class="btn" href="mailto:j.engelhard0@gmail.com">Email</a>
+        </div>
+        <!-- Decorative waveform: bars bounce like an audio meter (paused for reduced motion). -->
+        <div class="wave" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Featured projects ===== -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <h2 id="projects-title">Projects</h2>
+        <p class="section-intro">Most of these run in your browser. Try them.</p>
+
+        <div class="project-grid">
+          <!-- Synth Conductor gets the large card. -->
+          <article class="card project project-featured">
+            <div class="featured-media">
+              <!-- Has audio, but starts muted: browsers block autoplay with sound. -->
+              <video class="project-video" id="synth-video" src="assets/video/synth-conductor.mp4" muted loop playsinline controls
+                     preload="metadata" data-autoplay
+                     aria-label="20-second clip of Jonathan playing Synth Conductor: his left hand changes chords and his right hand shapes the sound, while the on-screen keyboard and chord name update"></video>
+              <!-- Hidden until script.js wires it up; without JS the video's own controls still unmute. -->
+              <button class="btn sound-toggle" type="button" data-video="synth-video" aria-pressed="false" hidden>
+                Turn on sound
+              </button>
+            </div>
+            <div class="project-body">
+              <p class="meta">Personal project · Oct 2026 – present</p>
+              <h3>Synth Conductor</h3>
+              <p>
+                A free browser instrument you play with your webcam. Your left hand picks chords and your right
+                hand shapes the sound. No account, no install, no tracking.
+              </p>
+              <p>
+                Hand tracking runs entirely in the browser with MediaPipe, so the camera image never leaves your
+                computer. It also has Web MIDI output, a looper, a drone, percussion, a modulation matrix and a
+                "Learn the basics" tutorial.
+              </p>
+              <ul class="tags" aria-label="Technologies">
+                <li>JavaScript</li><li>MediaPipe</li><li>Tone.js</li><li>Web Audio</li><li>Web MIDI</li><li>GitHub Actions</li>
+              </ul>
+              <p class="credit">
+                Made with permission from Eric Wei, creator of
+                <a href="https://indecisiveeric.com/gesture-synth">Gesture Synth</a>.
+              </p>
+              <p class="note">Needs a webcam. Works in Chrome, Edge and Brave.</p>
+              <div class="button-row">
+                <a class="btn btn-primary" href="https://jonotopo.github.io/synth-conductor/">Try it live</a>
+                <a class="btn" href="https://github.com/JoNoToPo/synth-conductor">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project">
+            <!-- No autoplay attribute: script.js starts it only if the visitor allows motion. -->
+            <video class="project-video" src="assets/video/rewrite.mp4" muted loop playsinline controls
+                   preload="metadata" data-autoplay
+                   aria-label="13-second gameplay clip of Rewrite running in the browser"></video>
+            <div class="project-body">
+              <p class="meta">BCIT COMP 1510 · Mar 2025 – Nov 2026</p>
+              <h3>Rewrite</h3>
+              <p>
+                A story-based puzzle game about rewriting history with a time machine. It's drawn in procedurally
+                generated ASCII, and the "rewrite" action adds or removes walls and deliberately glitches the screen.
+              </p>
+              <p>
+                Your choices carry over between playthroughs, so the targets change depending on what you did
+                last time. The Python runs in the browser through Pyodide. 178 unit tests.
+              </p>
+              <ul class="tags" aria-label="Technologies">
+                <li>Python</li><li>Pyodide</li><li>Unit testing</li>
+              </ul>
+              <div class="button-row">
+                <a class="btn btn-primary" href="https://jonotopo.github.io/COMP-1510-Term-Project-Rewrite/">Play in browser</a>
+                <a class="btn" href="https://github.com/JoNoToPo/COMP-1510-Term-Project-Rewrite">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project">
+            <video class="project-video" src="assets/video/paradax.mp4" muted loop playsinline controls
+                   preload="metadata" data-autoplay
+                   aria-label="26-second clip of Paradax's tutorial levels: the player drags and resizes the game window to find the Next Level button"></video>
+            <div class="project-body">
+              <p class="meta">BCIT COMP 2522 · Sep – Dec 2025</p>
+              <h3>Paradax</h3>
+              <p>
+                A puzzle game you solve by moving and resizing the game window itself. One box follows the
+                window's width, another follows its left edge. 16 levels, and progress saves automatically.
+              </p>
+              <p>
+                Built with SOLID design in mind, and checked with Checkstyle, SpotBugs, PMD and JaCoCo in Gradle.
+              </p>
+              <ul class="tags" aria-label="Technologies">
+                <li>Java 24</li><li>JavaFX</li><li>Gradle</li>
+              </ul>
+              <!-- The exe isn't code-signed, so Windows SmartScreen warns on first launch. -->
+              <p class="note">
+                Windows only, about 40 MB. Unzip and run <code>Paradax.exe</code>. Windows may warn about an
+                unknown publisher; choose "More info" → "Run anyway".
+              </p>
+              <div class="button-row">
+                <!-- /releases/latest always points at the newest GitHub Release, so new builds need no site change. -->
+                <a class="btn btn-primary" href="https://github.com/JoNoToPo/COMP-2522-202530-Term-Project-Paradax/releases/latest">Download for Windows</a>
+                <a class="btn" href="https://github.com/JoNoToPo/COMP-2522-202530-Term-Project-Paradax">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project">
+            <!-- TODO: add 1–2 screenshots. -->
+            <div class="media-placeholder" role="img" aria-label="Screenshots of Gamify Life coming soon">
+              <span>Screenshots coming soon</span>
+            </div>
+            <div class="project-body">
+              <p class="meta">BCIT COMP 2800 · May – Jun 2025</p>
+              <h3>Gamify Life</h3>
+              <p>
+                A web app that lets parents turn chores and responsibilities into a game for their kids, with logos
+                generated by the DALL-E 3 API.
+              </p>
+              <p>I led a team of 5 and ran Scrum with SMART tasks and daily check-ins.</p>
+              <ul class="tags" aria-label="Technologies">
+                <li>Node.js</li><li>Express</li><li>MongoDB</li><li>JavaScript</li><li>Tailwind</li><li>OpenAI API</li>
+              </ul>
+              <!-- TODO: confirm repo (teammate's account: ivanekavalashvili/2800-202510-DTC02) before linking. -->
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Industry work ===== -->
+    <section class="section section-alt" id="industry" aria-labelledby="industry-title">
+      <div class="container">
+        <h2 id="industry-title">Industry work</h2>
+        <div class="industry-grid">
+          <article class="card industry">
+            <p class="meta">Sep 2026 – present · Team of 6</p>
+            <h3>HIIPS360 for WorkSafeBC</h3>
+            <p class="role">Client liaison and developer · BCIT Industry Sponsored Student Project</p>
+            <p>
+              A prototype progressive web app for WorkSafeBC field officers. It turns long hazard-inspection PDFs
+              into searchable guidance linked to the regulations, for use during site visits.
+            </p>
+            <ul class="bullets">
+              <li>Client liaison between the team and WorkSafeBC.</li>
+              <li>Built the job sites home page and <code>/jobs</code> route in React, using a shared context for state.</li>
+              <li>Removed the dashboard navigation.</li>
+              <li>Team features include photo-based hazard suggestions (Gemini API), offline install and in-browser semantic search.</li>
+            </ul>
+            <ul class="tags" aria-label="Technologies">
+              <li>React</li><li>Vite</li><li>Express</li><li>MongoDB</li>
+            </ul>
+          </article>
+
+          <article class="card industry">
+            <p class="meta">Apr 2026 · Practicum</p>
+            <h3>Autism Community Training (ACT)</h3>
+            <p class="role">Main client liaison · WordPress</p>
+            <p>
+              <a href="https://www.actcommunity.ca/">ACT</a> is a B.C. non-profit offering evidence-informed autism
+              training and resources. Our team reworked their site on a staging copy.
+            </p>
+            <ul class="bullets">
+              <li>Acted as the team's main contact with ACT.</li>
+              <li>Overhauled the navbar, home page and "Informative Workshops &amp; Presentations" page.</li>
+              <li>Built new Courses and "Navigation Support for Families" pages, and replaced the BC information resources.</li>
+              <li>Removed outdated pages and courses, and added the "Visibility Control for LearnDash" and "What The File" plugins.</li>
+            </ul>
+            <ul class="tags" aria-label="Technologies">
+              <li>WordPress</li><li>LearnDash</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Skills ===== -->
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <h2 id="skills-title">Skills</h2>
+        <dl class="skills">
+          <div>
+            <dt>Languages</dt>
+            <dd><ul class="tags"><li>Python</li><li>JavaScript</li><li>Java</li><li>C</li><li>Kotlin</li><li>SQL</li><li>HTML</li><li>CSS</li></ul></dd>
+          </div>
+          <div>
+            <dt>AI / ML</dt>
+            <!-- TODO: add specific ML libraries from COMP 4983 once confirmed. -->
+            <dd><ul class="tags"><li>Machine learning</li><li>MediaPipe hand tracking</li><li>OpenAI API (DALL-E 3)</li></ul></dd>
+          </div>
+          <div>
+            <dt>Frameworks &amp; libraries</dt>
+            <dd><ul class="tags"><li>React</li><li>Vite</li><li>Node.js</li><li>Express</li><li>MongoDB</li><li>Tone.js</li><li>Web MIDI</li><li>Pyodide</li><li>JavaFX</li></ul></dd>
+          </div>
+          <div>
+            <dt>Tools</dt>
+            <dd><ul class="tags"><li>Git</li><li>GitHub Actions &amp; Pages</li><li>Claude Code</li><li>Gradle</li><li>WordPress</li><li>AppSheet</li><li>Firebase</li><li>Figma</li></ul></dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section class="section section-alt" id="about" aria-labelledby="about-title">
+      <div class="container about">
+        <div>
+          <h2 id="about-title">About</h2>
+          <!-- TODO: draft bio; Jonathan to rewrite in his own voice. -->
+          <p>
+            I'm in my final term of Computer Systems Technology at BCIT, in the AI &amp; Machine Learning option,
+            graduating December 2026. I build things people can play with, like a webcam instrument controlled by
+            hand tracking and a time-travel puzzle game that runs in the browser. I've been client liaison on two
+            real industry projects.
+          </p>
+          <p>
+            Before tech I trained as an actor and worked in customer-facing roles, and I still help lead music,
+            dance and young adults ministries at my church.
+          </p>
+        </div>
+        <div class="timeline">
+          <h3>Education</h3>
+          <ul>
+            <li><strong>Computer Systems Technology Diploma</strong>, BCIT · Jan 2025 – Dec 2026 (expected)<br>
+              <span class="muted">AI &amp; Machine Learning option: Intro to AI, Machine Learning, Selected Topics in AI &amp; ML</span></li>
+            <li><strong>Acting Diploma</strong>, New Image College · 2020</li>
+          </ul>
+          <h3>Experience</h3>
+          <ul>
+            <li><strong>Energy Advisor</strong>, Energuy · Jan 2021 – Aug 2024</li>
+            <li><strong>Volunteer Leader</strong>, Church of Zion · May 2018 – present</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Contact ===== -->
+  <footer class="section footer" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <h2 id="contact-title">Get in touch</h2>
+      <p>I'm looking for junior developer and AI/ML roles in the Vancouver area.</p>
+      <div class="button-row">
+        <a class="btn btn-primary" href="mailto:j.engelhard0@gmail.com">j.engelhard0@gmail.com</a>
+        <a class="btn" href="https://github.com/JoNoToPo">GitHub</a>
+        <!-- TODO: LinkedIn link once Jonathan confirms the URL. -->
+        <a class="btn" href="assets/Jonathan_Engelhard_Resume.pdf">Resume (PDF)</a>
+      </div>
+      <p class="muted small">© 2026 Jonathan Engelhard</p>
+    </div>
+  </footer>
+</body>
+</html>

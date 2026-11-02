@@ -1,0 +1,11 @@
+# Private planning notes and resume source stay on this computer only.
+# The repo is public and GitHub Pages serves every committed file.
+CLAUDE.md
+docs/
+resume/
+.claude/
+
+# Editor / OS clutter
+.vscode/
+Thumbs.db
+desktop.ini
