@@ -381,9 +381,10 @@ code {
   margin-bottom: 0.35rem;
 }
 
+/* Two columns: Rewrite and Paradax share a row; wide cards take a row of their own. */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
 
@@ -406,8 +407,8 @@ code {
   padding-top: 0.5rem;
 }
 
-/* Featured card spans the full row, media beside the text. */
-.project-featured {
+/* Wide cards span the full row, with the video beside the text. */
+.project-wide {
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: 1.1fr 1fr;
@@ -431,8 +432,8 @@ code {
   font-size: 0.9rem;
 }
 
-/* Featured media column: the 16:9 video sits centred with the sound button under it. */
-.featured-media {
+/* Wide card media column: the 16:9 video sits centred (with the sound button under it, if any). */
+.wide-media {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -443,7 +444,7 @@ code {
   border-right: 1px solid var(--border);
 }
 
-.featured-media .project-video {
+.wide-media .project-video {
   border-bottom: 0;
 }
 
@@ -466,21 +467,47 @@ code {
   padding-left: 0.75rem;
 }
 
-@media (max-width: 960px) {
-  .project-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 720px) {
   .project-grid,
-  .project-featured {
+  .project-wide {
     grid-template-columns: 1fr;
   }
-  .featured-media {
+  .wide-media {
     border-right: 0;
     border-bottom: 1px solid var(--border);
   }
+}
+
+/* ==========================================================================
+   Desmos
+   ========================================================================== */
+.desmos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 1.5rem;
+}
+
+.desmos-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Desmos graphs are white, so the media keeps its own background in dark mode too. */
+.desmos-card img,
+.desmos-card video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+
+.desmos-more {
+  margin-top: 1.75rem;
+  color: var(--muted);
 }
 
 /* ==========================================================================

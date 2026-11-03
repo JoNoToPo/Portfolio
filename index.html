@@ -69,8 +69,8 @@
 
         <div class="project-grid">
           <!-- Synth Conductor gets the large card. -->
-          <article class="card project project-featured">
-            <div class="featured-media">
+          <article class="card project project-wide project-featured">
+            <div class="wide-media">
               <!-- Has audio, but starts muted: browsers block autoplay with sound. -->
               <video class="project-video" id="synth-video" src="assets/video/synth-conductor.mp4" muted loop playsinline controls
                      preload="metadata" data-autoplay
@@ -163,11 +163,14 @@
             </div>
           </article>
 
-          <article class="card project">
-            <!-- Cut from the team's demo video; audio removed on purpose. -->
-            <video class="project-video" src="assets/video/gamify-life.mp4" muted loop playsinline controls
-                   preload="metadata" data-autoplay
-                   aria-label="25-second clip of Gamify Life: a parent creates a chore with an AI-generated icon and updates a reward, a kid claims it, and the parent reviews the claim"></video>
+          <!-- Gamify Life gets its own row so its UI is readable. -->
+          <article class="card project project-wide">
+            <div class="wide-media">
+              <!-- Cut from the team's demo video; audio removed on purpose. -->
+              <video class="project-video" src="assets/video/gamify-life.mp4" muted loop playsinline controls
+                     preload="metadata" data-autoplay
+                     aria-label="25-second clip of Gamify Life: a parent creates a chore with an AI-generated icon and updates a reward, a kid claims it, and the parent reviews the claim"></video>
+            </div>
             <div class="project-body">
               <p class="meta">BCIT COMP 2800 · May – Jun 2025</p>
               <h3>Gamify Life</h3>
@@ -190,8 +193,77 @@
       </div>
     </section>
 
+    <!-- ===== Desmos (made mostly before learning to program) ===== -->
+    <section class="section section-alt" id="desmos" aria-labelledby="desmos-title">
+      <div class="container">
+        <h2 id="desmos-title">Before code: math in Desmos</h2>
+        <p class="section-intro">
+          I built these in the Desmos graphing calculator, mostly before I started programming. Everything on screen,
+          game logic included, is equations.
+        </p>
+
+        <div class="desmos-grid">
+          <article class="card desmos-card">
+            <!-- The still doubles as the poster for visitors who don't get autoplay. -->
+            <video src="assets/video/desmos-avoid-the-squares.mp4" poster="assets/img/desmos-avoid-the-squares.jpg"
+                   muted loop playsinline controls preload="metadata" data-autoplay
+                   aria-label="24-second clip of Avoid the Squares: starting the game with the PLAY switch, then dodging coloured squares through levels 10 and 11 until game over"></video>
+            <div class="project-body">
+              <h3>Avoid the Squares</h3>
+              <p>
+                A dodging game with levels that get harder, a choice of lives and difficulty, and a level select you
+                unlock by beating level 10. A folder inside explains how it works.
+              </p>
+              <div class="button-row">
+                <a class="btn btn-primary" href="https://www.desmos.com/calculator/e36726e250">Play in Desmos</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card desmos-card">
+            <!-- The still doubles as the poster for visitors who don't get autoplay. -->
+            <video src="assets/video/desmos-tank.mp4" poster="assets/img/desmos-tank.jpg" muted loop playsinline controls
+                   preload="metadata" data-autoplay
+                   aria-label="24-second clip of the Desmos tank firing: muzzle flashes, shells, a laser and smoke over moving grass"></video>
+            <div class="project-body">
+              <p class="meta">Grade 11</p>
+              <h3>Tank</h3>
+              <p>A tank scene with shells, a laser, enemy attacks and moving grass, all driven by sliders.</p>
+              <div class="button-row">
+                <a class="btn" href="https://www.desmos.com/calculator/4ee7326473">Open in Desmos</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card desmos-card">
+            <!-- The still doubles as the poster for visitors who don't get autoplay. -->
+            <video src="assets/video/desmos-trig.mp4" poster="assets/img/desmos-trig.jpg"
+                   muted loop playsinline controls preload="metadata" data-autoplay
+                   aria-label="36-second clip of the trig tool: dragging the radians slider moves a point around the unit circle while the degrees, slope and sine or cosine wave update alongside"></video>
+            <div class="project-body">
+              <h3>Radians and trig explained</h3>
+              <p>
+                An interactive tool for teachers and students to visualise trigonometry and see what it's for. Move
+                the angle and watch the unit circle unroll into a sine wave, alongside the Pythagorean theorem, the
+                cosine law and a radians-to-degrees converter.
+              </p>
+              <div class="button-row">
+                <a class="btn" href="https://www.desmos.com/calculator/c492f873f2">Try it in Desmos</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <p class="desmos-more">
+          Also: <a href="https://www.desmos.com/calculator/cbf4edf206">Spinning Coin</a>, a coin with spin and width
+          sliders, and <a href="https://www.desmos.com/calculator/45f1ae8147">Pizza Math</a>, which works out the best
+          local pizza deal per square inch and per meal.
+        </p>
+      </div>
+    </section>
+
     <!-- ===== Industry work ===== -->
-    <section class="section section-alt" id="industry" aria-labelledby="industry-title">
+    <section class="section" id="industry" aria-labelledby="industry-title">
       <div class="container">
         <h2 id="industry-title">Industry work</h2>
         <div class="industry-grid">
@@ -237,7 +309,7 @@
     </section>
 
     <!-- ===== Skills ===== -->
-    <section class="section" id="skills" aria-labelledby="skills-title">
+    <section class="section section-alt" id="skills" aria-labelledby="skills-title">
       <div class="container">
         <h2 id="skills-title">Skills</h2>
         <dl class="skills">
@@ -263,7 +335,7 @@
     </section>
 
     <!-- ===== About ===== -->
-    <section class="section section-alt" id="about" aria-labelledby="about-title">
+    <section class="section" id="about" aria-labelledby="about-title">
       <div class="container about">
         <div>
           <h2 id="about-title">About</h2>
