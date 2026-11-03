@@ -456,6 +456,23 @@ code {
   border-bottom: 1px solid var(--border);
 }
 
+/* Work in progress: full row, dashed border so it reads as "not finished yet". */
+.project-upcoming {
+  grid-column: 1 / -1;
+  border-style: dashed;
+  box-shadow: none;
+}
+
+.status-badge {
+  display: inline-block;
+  margin-right: 0.4rem;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: 0.8rem;
+}
+
 .credit,
 .note {
   font-size: 0.9rem;
