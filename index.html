@@ -88,12 +88,19 @@
                 hand shapes the sound. No account, no install, no tracking.
               </p>
               <p>
-                Hand tracking runs entirely in the browser with MediaPipe, so the camera image never leaves your
-                computer. It also has Web MIDI output, a looper, a drone, percussion, a modulation matrix and a
-                "Learn the basics" tutorial.
+                Hand tracking (MediaPipe, in a Web Worker) runs entirely in the browser, so the camera image never
+                leaves your computer, and the sound is synthesised live with the Web Audio API. Thumb and wrist twists
+                build 9ths, 6ths and altered chords, with voice leading between them. It also plays other synths over
+                MIDI, records chord loops, exports .mid files and has a 10-step tutorial.
+              </p>
+              <!-- Based on Jonathan's own wording (Nov 3 2026). Repo: 72 commits in 7 days, 64 co-authored with Claude.
+                   The audio is plain Web Audio; it does NOT use Tone.js. -->
+              <p>
+                I built it with Claude Code. I designed the gestures, the chord system and how it should feel to play,
+                then directed and reviewed the code, testing it by playing on camera and reworking it over 70+ commits.
               </p>
               <ul class="tags" aria-label="Technologies">
-                <li>JavaScript</li><li>MediaPipe</li><li>Tone.js</li><li>Web Audio</li><li>Web MIDI</li><li>GitHub Actions</li>
+                <li>JavaScript</li><li>MediaPipe</li><li>Web Audio</li><li>Web MIDI</li><li>Claude Code</li><li>GitHub Actions</li>
               </ul>
               <p class="credit">
                 Made with permission from Eric Wei, creator of
@@ -347,7 +354,7 @@
           </div>
           <div>
             <dt>Frameworks &amp; libraries</dt>
-            <dd><ul class="tags"><li>React</li><li>Vite</li><li>Node.js</li><li>Express</li><li>MongoDB</li><li>Tone.js</li><li>Web MIDI</li><li>Pyodide</li><li>JavaFX</li></ul></dd>
+            <dd><ul class="tags"><li>React</li><li>Vite</li><li>Node.js</li><li>Express</li><li>MongoDB</li><li>Web Audio API</li><li>Web MIDI</li><li>Pyodide</li><li>JavaFX</li></ul></dd>
           </div>
           <div>
             <dt>Tools</dt>
