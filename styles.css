@@ -1,22 +1,29 @@
 /* ==========================================================================
    Design tokens
    Colours live on :root so light and dark themes only swap variables.
-   --brand is the resume blue (#4A86E8). It is too light for body-size text
-   on white, so --accent is a darker shade that passes WCAG AA (4.5:1).
+   The palette comes from Jonathan's JFE swirl artwork: olive-black, sage
+   green, slate periwinkle, cream and lavender-white. Light mode is the
+   cream version. --brand is decorative; --accent is the shade that passes
+   WCAG AA (4.5:1) for text and buttons. --swirl-1..5 colour the hero ribbons.
    ========================================================================== */
 :root {
-  --brand: #4a86e8;
-  --accent: #1f5fc4;
+  --brand: #5d5f96;
+  --accent: #3b6635;
   --accent-contrast: #ffffff;
-  --bg: #ffffff;
-  --bg-alt: #f3f6fb;
-  --surface: #ffffff;
-  --text: #1a1d23;
-  --muted: #555c68;
-  --border: #dde3ec;
-  --tag-bg: #e8f0fd;
-  --tag-text: #1a4fa3;
-  --shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 4px 16px rgb(0 0 0 / 0.06);
+  --bg: #f2efdf;
+  --bg-alt: #e8e5d2;
+  --surface: #faf8ee;
+  --text: #16190f;
+  --muted: #4d5243;
+  --border: #d5d1ba;
+  --tag-bg: #e3e4f2;
+  --tag-text: #3b3e78;
+  --shadow: 0 1px 2px rgb(22 25 15 / 0.05), 0 4px 16px rgb(22 25 15 / 0.07);
+  --swirl-1: #5d5f96;
+  --swirl-2: #4a7446;
+  --swirl-3: #2f312c;
+  --swirl-4: #9a9dc8;
+  --swirl-5: #b5ae86;
 
   --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --font-display: "Space Grotesk", var(--font-body);
@@ -28,34 +35,46 @@
 /* Dark theme: used when the system prefers dark, unless the visitor picked light. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --accent: #7aa8f2;
-    --accent-contrast: #0d1320;
-    --bg: #0f131a;
-    --bg-alt: #151a23;
-    --surface: #1a202b;
-    --text: #e8ebf0;
-    --muted: #a3abb8;
-    --border: #2a3240;
-    --tag-bg: #1e2b44;
-    --tag-text: #b7cff7;
+    --brand: #7a7dbd;
+    --accent: #8fbe85;
+    --accent-contrast: #0c0e07;
+    --bg: #0c0e07;
+    --bg-alt: #12150d;
+    --surface: #171a12;
+    --text: #ece8d0;
+    --muted: #a8a996;
+    --border: #2b2f24;
+    --tag-bg: #22243a;
+    --tag-text: #c8cbf0;
     --shadow: none;
+    --swirl-1: #5d5f96;
+    --swirl-2: #4a7446;
+    --swirl-3: #dcdeef;
+    --swirl-4: #e8e4c9;
+    --swirl-5: #4a4a46;
     color-scheme: dark;
   }
 }
 
 /* Same dark values when the visitor picked dark with the toggle. */
 :root[data-theme="dark"] {
-  --accent: #7aa8f2;
-  --accent-contrast: #0d1320;
-  --bg: #0f131a;
-  --bg-alt: #151a23;
-  --surface: #1a202b;
-  --text: #e8ebf0;
-  --muted: #a3abb8;
-  --border: #2a3240;
-  --tag-bg: #1e2b44;
-  --tag-text: #b7cff7;
+  --brand: #7a7dbd;
+  --accent: #8fbe85;
+  --accent-contrast: #0c0e07;
+  --bg: #0c0e07;
+  --bg-alt: #12150d;
+  --surface: #171a12;
+  --text: #ece8d0;
+  --muted: #a8a996;
+  --border: #2b2f24;
+  --tag-bg: #22243a;
+  --tag-text: #c8cbf0;
   --shadow: none;
+  --swirl-1: #5d5f96;
+  --swirl-2: #4a7446;
+  --swirl-3: #dcdeef;
+  --swirl-4: #e8e4c9;
+  --swirl-5: #4a4a46;
   color-scheme: dark;
 }
 
@@ -176,11 +195,21 @@ code {
 }
 
 .nav-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   font-family: var(--font-display);
   font-weight: 700;
   color: var(--text);
   text-decoration: none;
   margin-right: auto;
+}
+
+/* JFE monogram; drawn with currentColor so it follows the theme. */
+.logo {
+  width: 1.9rem;
+  height: 1.9rem;
+  flex: none;
 }
 
 .nav-links {
@@ -227,9 +256,16 @@ code {
   background: linear-gradient(90deg, currentColor 50%, transparent 50%);
 }
 
-/* On narrow screens the name drops away so all links fit on one row. */
-@media (max-width: 640px) {
+/* On narrow screens the name text drops away (the monogram stays) so all links fit on one row;
+   on the smallest phones the monogram goes too. */
+@media (max-width: 420px) {
   .nav-name {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-name span {
     display: none;
   }
   .nav-links {
@@ -301,7 +337,38 @@ code {
    Hero
    ========================================================================== */
 .hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: min(78vh, 640px);
   padding: clamp(3rem, 10vw, 6.5rem) 0 clamp(2.5rem, 6vw, 4rem);
+}
+
+.hero .container {
+  position: relative; /* sits above the canvas */
+  width: 100%;
+}
+
+/* Ribbon swirls fill the hero behind the text. The mask fades them out toward
+   the left so the name and buttons stay easy to read. */
+.hero-swirl {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 25%, #000 65%);
+  mask-image: linear-gradient(90deg, transparent 0%, transparent 25%, #000 65%);
+}
+
+/* On phones there's no room beside the text, so the swirls sit faintly behind it. */
+@media (max-width: 720px) {
+  .hero-swirl {
+    opacity: 0.35;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
 }
 
 .eyebrow {
@@ -319,36 +386,6 @@ code {
   max-width: 36rem;
   font-size: clamp(1.1rem, 2.6vw, 1.3rem);
   color: var(--muted);
-}
-
-/* The playful touch: a row of bars that bounce like an audio level meter. */
-.wave {
-  display: flex;
-  align-items: flex-end;
-  gap: 5px;
-  height: 48px;
-  margin-top: 2.5rem;
-}
-
-.wave span {
-  width: 6px;
-  height: 100%;
-  border-radius: 3px;
-  background: var(--brand);
-  opacity: 0.75;
-  transform-origin: bottom;
-  animation: bounce 1.4s ease-in-out infinite alternate;
-}
-
-/* Stagger each bar so the row looks like a moving waveform. */
-.wave span:nth-child(3n)   { animation-duration: 1.1s; }
-.wave span:nth-child(3n+1) { animation-duration: 1.7s; }
-.wave span:nth-child(4n)   { animation-delay: -0.6s; }
-.wave span:nth-child(5n+2) { animation-delay: -1.1s; }
-
-@keyframes bounce {
-  from { transform: scaleY(0.15); }
-  to   { transform: scaleY(1); }
 }
 
 /* ==========================================================================
@@ -620,18 +657,12 @@ code {
 }
 
 /* ==========================================================================
-   Reduced motion: stop the waveform and smooth scrolling.
+   Reduced motion: stop smooth scrolling and button lifts. (script.js draws
+   the hero swirls as a single still frame and skips video autoplay.)
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-  .wave span {
-    animation: none;
-    transform: scaleY(0.5);
-  }
-  .wave span:nth-child(odd) {
-    transform: scaleY(0.8);
   }
   .btn {
     transition: none;

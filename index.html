@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/img/jfe.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0c0e07">
   <link rel="stylesheet" href="styles.css">
   <!-- Apply a saved theme before first paint so the page doesn't flash the wrong colours. -->
   <script>
@@ -23,7 +25,19 @@
 
   <header class="site-header">
     <nav class="nav" aria-label="Main">
-      <a class="nav-name" href="#top">Jonathan Engelhard</a>
+      <a class="nav-name" href="#top">
+        <!-- JFE monogram (Jonathan Friedrich Engelhard), redrawn from his artwork: one stem is the J,
+             with the F and E bars branching off it. Same paths as assets/img/jfe.svg. -->
+        <svg class="logo" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+          <g transform="translate(-4 0)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 24 C40 18 70 13 96 12" stroke-width="8"/>
+            <path d="M50 19 C56 40 61 62 54 76 C47 89 29 86 25 66" stroke-width="10"/>
+            <path d="M63 47 L83 46" stroke-width="7"/>
+            <path d="M68 80 C78 79 87 78 95 76" stroke-width="8"/>
+          </g>
+        </svg>
+        <span>Jonathan Engelhard</span>
+      </a>
       <ul class="nav-links">
         <li><a href="#projects">Projects</a></li>
         <li><a href="#industry">Industry</a></li>
@@ -40,6 +54,9 @@
   <main id="main">
     <!-- ===== Hero ===== -->
     <section class="hero" id="top" aria-labelledby="hero-title">
+      <!-- Decorative ribbon swirls in the style of the JFE artwork, drawn by script.js
+           (a single still frame for reduced-motion visitors). -->
+      <canvas class="hero-swirl" aria-hidden="true"></canvas>
       <div class="container">
         <p class="eyebrow">Vancouver, BC · Graduating December 2026</p>
         <h1 id="hero-title">Jonathan Engelhard</h1>
@@ -52,12 +69,6 @@
           <a class="btn" href="https://github.com/JoNoToPo">GitHub</a>
           <a class="btn" href="https://www.linkedin.com/in/jonathan-engelhard-5488aa141/">LinkedIn</a>
           <a class="btn" href="mailto:j.engelhard0@gmail.com">Email</a>
-        </div>
-        <!-- Decorative waveform: bars bounce like an audio meter (paused for reduced motion). -->
-        <div class="wave" aria-hidden="true">
-          <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
         </div>
       </div>
     </section>
