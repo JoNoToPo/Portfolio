@@ -24,6 +24,8 @@
   --swirl-3: #2f312c;
   --swirl-4: #9a9dc8;
   --swirl-5: #b5ae86;
+  --logo-blue: #5d5f96;
+  --logo-green: #4a7446;
 
   --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --font-display: "Space Grotesk", var(--font-body);
@@ -52,6 +54,8 @@
     --swirl-3: #dcdeef;
     --swirl-4: #e8e4c9;
     --swirl-5: #4a4a46;
+    --logo-blue: #7a7dbd;
+    --logo-green: #6f9e66;
     color-scheme: dark;
   }
 }
@@ -75,6 +79,8 @@
   --swirl-3: #dcdeef;
   --swirl-4: #e8e4c9;
   --swirl-5: #4a4a46;
+  --logo-blue: #7a7dbd;
+  --logo-green: #6f9e66;
   color-scheme: dark;
 }
 
@@ -205,11 +211,20 @@ code {
   margin-right: auto;
 }
 
-/* JFE monogram; drawn with currentColor so it follows the theme. */
+/* JFE monogram; drawn with currentColor so it follows the theme, inside the
+   favicon's blue and green arcs. */
 .logo {
-  width: 1.9rem;
-  height: 1.9rem;
+  width: 2.2rem;
+  height: 2.2rem;
   flex: none;
+}
+
+.logo-arc-blue {
+  stroke: var(--logo-blue);
+}
+
+.logo-arc-green {
+  stroke: var(--logo-green);
 }
 
 .nav-links {
