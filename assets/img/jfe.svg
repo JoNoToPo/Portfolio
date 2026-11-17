@@ -10,6 +10,6 @@
     <path d="M12 24 C40 18 70 13 96 12" stroke-width="8"/>
     <path d="M50 19 C56 40 61 62 54 76 C47 89 29 86 25 66" stroke-width="10"/>
     <path d="M63 47 L83 46" stroke-width="7"/>
-    <path d="M68 80 C78 79 87 78 95 76" stroke-width="8"/>
+    <path d="M67 80 C78 79 89 78 99 75.5" stroke-width="8"/>
   </g>
 </svg>
