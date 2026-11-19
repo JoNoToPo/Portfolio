@@ -214,22 +214,30 @@
             </div>
           </article>
 
-          <!-- Proposal stage only: describe as planned team work, never as built. No individual tasks yet. -->
+          <!-- Working prototype, still in progress (checked against the repo Nov 19 2026). The models and agent are
+               team work; "My part" lists only features from Jonathan's own commits. The repo is private, so no
+               Code link until the team makes it public. -->
           <article class="card project project-upcoming">
             <div class="project-body">
-              <p class="meta"><span class="status-badge">In progress</span> BCIT COMP 4989 · Team of 4 · Fall 2026</p>
+              <p class="meta"><span class="status-badge">In progress</span> BCIT COMP 4989 · Group project · Fall 2026</p>
               <h3>PantryPilot</h3>
               <p>
-                Our capstone AI project: an agent that turns a photo of a grocery receipt into a pantry with estimated
-                expiry dates, then plans meals that use food before it spoils.
+                Our capstone AI project: an installable phone app that turns a photo of a grocery receipt into a pantry
+                with estimated best-before dates, then plans meals that use food before it spoils.
               </p>
               <p>
-                We're in early planning. The plan is to fine-tune a Donut model to read receipts and a YOLO-style
-                detector for loose produce, with a LangGraph multi-agent system that plans meals and replans as food
-                gets used or thrown out.
+                The working prototype reads receipts with a Donut model we're fine-tuning, looks items up in Open Food
+                Facts, estimates best-before dates from USDA FoodKeeper data, and spots loose produce with a YOLO
+                detector running in the browser. A LangGraph planner drafts the week's meals, and a rule-based critic
+                rejects any that use missing food or allergens.
               </p>
-              <ul class="tags" aria-label="Planned technologies">
-                <li>Python</li><li>Hugging Face</li><li>Donut</li><li>YOLO</li><li>LangGraph</li><li>MCP</li>
+              <p>
+                My part so far: shopping trips every 1 to 4 weeks with a grocery list ranked by expiring food, daily
+                push notifications for food past its best-before date, editing pantry items, and a Profile tab for
+                household members and their meal schedule.
+              </p>
+              <ul class="tags" aria-label="Technologies">
+                <li>Python</li><li>FastAPI</li><li>React</li><li>LangGraph</li><li>Donut</li><li>YOLO</li><li>Supabase</li><li>Web Push</li>
               </ul>
             </div>
           </article>
