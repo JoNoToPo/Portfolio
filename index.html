@@ -265,12 +265,17 @@
                 rejects any that use missing food or allergens.
               </p>
               <p>
-                My part so far: shopping trips every 1 to 4 weeks with a grocery list ranked by expiring food, daily
-                push notifications for food past its best-before date, editing pantry items, and a Profile tab for
-                household members and their meal schedule.
+                My part so far: a labelling loop where people fix the detector's boxes on their grocery photos, and
+                the corrected photos become training data for our detector, exported as a YOLO dataset or sent to
+                Roboflow (people can switch sharing off and delete their photos). I also tested an open-vocabulary
+                detector on real photos and dropped it when it missed too much.
+              </p>
+              <p>
+                On the app side: shopping trips with a grocery list ranked by expiring food, daily push notifications
+                for food past its best-before date, editing pantry items, and a Profile tab for household members.
               </p>
               <ul class="tags" aria-label="Technologies">
-                <li>Python</li><li>FastAPI</li><li>React</li><li>LangGraph</li><li>Donut</li><li>YOLO</li><li>Supabase</li><li>Web Push</li>
+                <li>Python</li><li>FastAPI</li><li>React</li><li>LangGraph</li><li>Donut</li><li>YOLO</li><li>Roboflow</li><li>Supabase</li><li>Web Push</li>
               </ul>
             </div>
           </article>
