@@ -233,13 +233,15 @@
               <h3>Insurance claim prediction (ML competition)</h3>
               <p>
                 Predicting car-insurance claim amounts for 30,000 unseen customers, where 95% claim nothing and the
-                leaderboard's scoring was hidden. We placed #2 of 5 at Checkpoint 1, one point behind first.
+                leaderboard's scoring was hidden. We placed #2 of 5 at Checkpoint 1, one point behind first, and #3 of
+                5 at Checkpoint 2.
               </p>
               <p>
                 My part: evaluation and strategy. I designed probe submissions that revealed the hidden metric, caught
                 a data leak in our training scores, compared models with paired cross-validation, and built each
-                checkpoint's submission package. Teammates built the preprocessing and the SVM, XGBoost and LightGBM
-                models.
+                checkpoint's submission package. After Checkpoint 2 I engineered features from the data's duplicate
+                rows and year-to-year records that cut our best model's cross-validated error from 99.50 to 98.79.
+                Teammates built the preprocessing and the SVM, XGBoost and LightGBM models.
               </p>
               <ul class="tags" aria-label="Technologies">
                 <li>Python</li><li>scikit-learn</li><li>XGBoost</li><li>LightGBM</li><li>pandas</li><li>Claude Code</li>
